@@ -1,0 +1,1141 @@
+/* ============================================
+   DUAL CODE - Components Stylesheet
+   Section-specific & Component Styles
+   ============================================ */
+
+/* ============================================
+   Service Cards
+   ============================================ */
+#services {
+    width: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+#services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0px 4px 16px rgba(0,0,0,0.04), 0px 1px 3px rgba(0,0,0,0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    height: 100%;
+    box-sizing: border-box;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Brilho gradiente ao passar o mouse */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(31, 111, 235, 0.1), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.service-card:hover::before {
+    left: 100%;
+}
+
+.service-card:hover {
+    box-shadow: 0px 12px 40px rgba(31, 111, 235, 0.15), 0px 4px 12px rgba(0,0,0,0.08);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(31, 111, 235, 0.2);
+}
+
+/* Container do conteúdo principal */
+.service-card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Estilo para o ícone */
+.service-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+
+.service-card:hover .service-icon {
+    transform: translateY(-6px) rotate(8deg) scale(1.1);
+    filter: drop-shadow(0 8px 16px rgba(31, 111, 235, 0.3));
+}
+
+/* Estilo específico para o título do card */
+.service-card .service-card-content h3.service-card-title {
+    font-size: 1.75rem !important;  /* Aumentando o tamanho da fonte */
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin: 0 0 1.5rem 0 !important;
+    line-height: 1.3 !important;
+    padding-bottom: 0.75rem;
+    position: relative;
+}
+
+/* Linha decorativa */
+.service-card .service-card-content h3.service-card-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #1F6FEB;
+    border-radius: 3px;
+}
+
+/* Ajuste para o emoji */
+.service-card .service-card-content h3.service-card-title span:first-child {
+    font-size: 1.75rem;
+    margin-right: 0.5rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.section-header::before {
+    content: attr(data-subtitle);
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #1F6FEB, transparent);
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: rgba(17, 24, 39, 0.9);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: #6B7280;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Estilo para a descrição */
+.service-card-desc {
+    color: #4B5563;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+/* Container das features */
+.service-features {
+    margin-bottom: 1.5rem;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Itens de feature */
+.service-feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    font-size: 0.9375rem;
+    color: #4B5563;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    padding-left: 0;
+}
+
+.service-card:hover .service-feature-item {
+    padding-left: 4px;
+}
+
+.service-feature-icon {
+    color: #1F6FEB;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-card:hover .service-feature-icon {
+    transform: scale(1.2) rotate(360deg);
+}
+
+/* Link do card */
+.service-card-link {
+    color: #1F6FEB;
+    font-weight: 500;
+    position: relative;
+    padding-top: 1rem;
+    margin-top: auto;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color 0.2s ease;
+}
+
+.service-card-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(31, 111, 235, 0.3), transparent);
+    transition: width 0.4s ease-out;
+}
+
+.service-card:hover .service-card-link::before {
+    width: 100%;
+}
+
+.service-card-link svg {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8;
+}
+
+.service-card:hover .service-card-link svg {
+    transform: translateX(4px);
+    opacity: 1;
+}
+    .service-card-link {
+    font-size: 0.9375rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: auto;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.service-card-link:hover {
+    color: #0C1126;
+}
+
+.service-card-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* Cores específicas para cada tipo de ícone - VIBRANTES */
+.service-icon.branding {
+    background: linear-gradient(135deg, #8B5CF6 0%, #D946EF 100%);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.service-icon.web {
+    background: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+.service-icon.marketing {
+    background: linear-gradient(135deg, #10B981 0%, #14B8A6 100%);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.service-icon.automation {
+    background: linear-gradient(135deg, #F59E0B 0%, #F97316 100%);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+/* ============================================
+   Creative Process Section - How Projects Come to Life
+   ============================================ */
+
+.creative-process-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card das etapas */
+.creative-step {
+  position: relative;
+  z-index: 1;
+}
+
+/* Número da etapa */
+.creative-step-number {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #1F6FEB 0%, #8B5CF6 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 4px 12px rgba(31, 111, 235, 0.3);
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.creative-step:hover .creative-step-number {
+  transform: scale(1.15) rotate(360deg);
+  box-shadow: 0 12px 40px rgba(31, 111, 235, 0.5);
+}
+
+/* Conteúdo do card */
+.creative-step-content {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 2.5rem;
+  padding-top: 3rem;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Efeito de brilho no hover */
+.creative-step-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(31, 111, 235, 0.08), transparent);
+  transition: left 0.6s ease;
+}
+
+.creative-step:hover .creative-step-content::before {
+  left: 100%;
+}
+
+.creative-step:hover .creative-step-content {
+  box-shadow: 0 12px 40px rgba(31, 111, 235, 0.15);
+  border-color: rgba(31, 111, 235, 0.2);
+  transform: translateY(-8px);
+}
+
+/* Texto do card */
+.creative-step-text {
+  flex: 1;
+}
+
+.creative-step-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #1F6FEB, #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.creative-step-description {
+  font-size: 1.0625rem;
+  color: #4B5563;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.creative-step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.creative-step-list li {
+  font-size: 0.9375rem;
+  color: #6B7280;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.creative-step-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #1F6FEB;
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.creative-step:hover .creative-step-list li {
+  padding-left: 2rem;
+  color: #4B5563;
+}
+
+/* Visual placeholder */
+.creative-step-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.visual-placeholder {
+  width: 70px;
+  height: 70px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-placeholder svg {
+  width: 35px;
+  height: 35px;
+}
+
+.visual-placeholder svg {
+  position: relative;
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+.creative-step:hover .visual-placeholder svg {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Cores específicas para cada etapa */
+.visual-placeholder.discovery {
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+  border: 2px solid rgba(31, 111, 235, 0.2);
+}
+
+.visual-placeholder.discovery svg {
+  stroke: #1F6FEB;
+}
+
+.visual-placeholder.design {
+  background: linear-gradient(135deg, #F3E8FF 0%, #E9D5FF 100%);
+  border: 2px solid rgba(139, 92, 246, 0.2);
+}
+
+.visual-placeholder.design svg {
+  stroke: #8B5CF6;
+}
+
+.visual-placeholder.development {
+  background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+  border: 2px solid rgba(59, 130, 246, 0.2);
+}
+
+.visual-placeholder.development svg {
+  stroke: #3B82F6;
+}
+
+.visual-placeholder.launch {
+  background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+  border: 2px solid rgba(16, 185, 129, 0.2);
+}
+
+.visual-placeholder.launch svg {
+  stroke: #10B981;
+}
+
+.creative-step:hover .visual-placeholder {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 12px 30px rgba(31, 111, 235, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .creative-process-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .creative-step {
+    margin: 0 0.5rem;
+  }
+
+  .creative-step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+    top: 1rem;
+    left: 1rem;
+    position: relative;
+    margin-bottom: -20px;
+    z-index: 10;
+  }
+
+  .creative-step-content {
+    padding: 3rem 1.5rem 2rem 1.5rem;
+    position: relative;
+  }
+
+  .visual-placeholder {
+    width: 60px;
+    height: 60px;
+  }
+
+  .visual-placeholder svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .creative-step-title {
+    font-size: 1.375rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .creative-step-description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .creative-step-list li {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ============================================
+   Portfolio Cards
+   ============================================ */
+
+.portfolio-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+/* Efeito de brilho no hover */
+.portfolio-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(31, 111, 235, 0.1), rgba(139, 92, 246, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.portfolio-card:hover::after {
+  opacity: 1;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(31, 111, 235, 0.2), 0 10px 20px rgba(0,0,0,0.1);
+  border-color: rgba(31, 111, 235, 0.3);
+}
+
+.portfolio-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--color-gray-100);
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.portfolio-card:hover .portfolio-image img {
+  transform: scale(1.08);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+
+/* Removed overlay on hover */
+
+.portfolio-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.portfolio-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.portfolio-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-gray-100);
+  color: var(--color-gray-700);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-tag {
+  background: linear-gradient(135deg, #1F6FEB, #8B5CF6);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.portfolio-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-client {
+  color: var(--color-gray-600);
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
+.portfolio-link {
+  color: var(--color-blue);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.portfolio-link svg {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.portfolio-card:hover .portfolio-link {
+  color: var(--color-violet);
+  gap: 0.75rem;
+}
+
+.portfolio-card:hover .portfolio-link svg {
+  transform: translateX(5px);
+}
+
+/* ============================================
+   Portfolio Carousel
+   ============================================ */
+
+#portfolio-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 2rem 0;
+  min-height: 500px;
+}
+
+#portfolio-carousel-track {
+  display: flex;
+  gap: 2rem;
+  animation: carousel-scroll 40s linear infinite;
+  width: max-content;
+}
+
+#portfolio-carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.portfolio-carousel-item {
+  flex: 0 0 400px;
+  width: 400px;
+  height: auto;
+}
+
+.portfolio-carousel-item .portfolio-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 450px;
+}
+
+@keyframes carousel-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Gradient masks on carousel edges */
+#portfolio-carousel-wrapper::before,
+#portfolio-carousel-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#portfolio-carousel-wrapper::before {
+  left: 0;
+  background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+#portfolio-carousel-wrapper::after {
+  right: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+}
+
+/* Case study preview removed */
+
+@media (max-width: 768px) {
+  .portfolio-carousel-item {
+    flex: 0 0 300px;
+    width: 300px;
+  }
+
+  #portfolio-carousel-wrapper::before,
+  #portfolio-carousel-wrapper::after {
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-carousel-item {
+    flex: 0 0 260px;
+    width: 260px;
+  }
+}
+
+/* ============================================
+   Process Timeline
+   ============================================ */
+
+.process-step {
+  display: flex;
+  gap: 1.5rem; /* Reduzido espaçamento */
+  margin-bottom: 2rem; /* Mais compacto */
+  position: relative;
+}
+
+.process-step:last-child {
+  margin-bottom: 0;
+}
+
+.process-step::before {
+  content: '';
+  position: absolute;
+  left: 25px; /* Aproximado da linha vertical */
+  top: 60px; /* Aproximado dos ícones */
+  width: 1px; /* Linha mais fina */
+  height: calc(100% + 0.5rem);
+  background: rgba(10, 102, 255, 0.2); /* Azul claro 20% opacidade */
+  box-shadow: 0 0 3px rgba(10, 102, 255, 0.03); /* Leve glow azul 3% */
+}
+
+.process-step:last-child::before {
+  display: none;
+}
+
+.process-icon-wrapper {
+  flex-shrink: 0;
+}
+
+.process-number {
+  width: 50px; /* Reduzido tamanho */
+  height: 50px;
+  border-radius: 50%;
+  background: white; /* Círculo branco */
+  color: #0A66FF; /* Número em azul */
+  border: 2px solid #0A66FF; /* Borda azul fina */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700; /* Bold */
+  font-family: var(--font-heading);
+  box-shadow: 0 2px 8px rgba(10, 102, 255, 0.15); /* Sombra suave */
+  position: relative;
+  z-index: 10;
+  transition: transform 0.3s ease; /* Hover animado */
+}
+
+.process-number:hover {
+  transform: translateY(-2px); /* Sobem 2px no hover */
+}
+
+.process-content {
+  flex: 1;
+  padding-top: 0.25rem; /* Reduzido espaçamento */
+}
+
+.process-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0D1A3A; /* Maior contraste */
+  margin-bottom: 0.5rem; /* Reduzido espaçamento */
+}
+
+/* Estilos para os bullets */
+.process-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.process-bullets li {
+  color: #556070; /* Cor dos bullets */
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.process-bullets li::before {
+  content: '•'; /* Bullet customizado */
+  position: absolute;
+  left: 0;
+  color: #0A66FF; /* Bullet em azul */
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.process-description {
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  font-size: 1.0625rem;
+}
+
+@media (max-width: 768px) {
+  .process-step {
+    gap: 1.25rem;
+    margin-bottom: 3rem; /* Mais espaço entre etapas */
+  }
+
+  .process-number {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+
+  .process-step::before {
+    left: 23px;
+    top: 60px;
+  }
+
+  .process-bullets li {
+    margin-bottom: 0.75rem; /* Mais espaço entre bullets */
+  }
+}
+
+/* ============================================
+   Testimonial Cards
+   ============================================ */
+
+.testimonial-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-gray-100);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.testimonial-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-blue-light);
+}
+
+.testimonial-quote {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-blue);
+  opacity: 0.15;
+  font-family: Georgia, serif;
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-star {
+  color: #FFC107;
+  font-size: 1.125rem;
+}
+
+.testimonial-text {
+  color: var(--color-gray-700);
+  line-height: 1.7;
+  font-size: 1.0625rem;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1F6FEB 0%, #0C1126 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-info {
+  flex: 1;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  color: var(--color-gray-900);
+  margin-bottom: 0.125rem;
+  font-size: 1rem;
+}
+
+.testimonial-company {
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+}
+
+/* ============================================
+   Loading States
+   ============================================ */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-gray-100) 0%,
+    var(--color-gray-200) 50%,
+    var(--color-gray-100) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.text-gradient {
+  background: linear-gradient(135deg, #1F6FEB 0%, #0C1126 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, #1F6FEB 0%, #0C1126 100%);
+}
+
+.text-gradient-animate {
+  background: linear-gradient(90deg, var(--color-blue), var(--color-violet), var(--color-pink), var(--color-violet), var(--color-blue));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 3s linear infinite;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Stagger animation delays for cards */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+
+@media (max-width: 768px) {
+  #services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-card,
+  .portfolio-card,
+  .testimonial-card {
+    padding: 2rem; /* Aumentado de 1.5rem para 2rem */
+    margin-bottom: 1.5rem; /* Mais espaço entre cards */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem; /* Mais espaço após o ícone */
+  }
+
+  .service-card .service-card-content h3.service-card-title {
+    font-size: 1.375rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .service-card-desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .service-title,
+  .portfolio-title,
+  .process-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem; /* Mais espaço após títulos */
+  }
+
+  /* Mais espaço entre features */
+  .service-feature-item {
+    margin-bottom: 1rem;
+  }
+
+  /* Mais espaço nos grids */
+  #services-grid,
+  #portfolio-grid,
+  #testimonials-grid {
+    gap: 2rem; /* Aumentado espaçamento entre cards */
+  }
+}
